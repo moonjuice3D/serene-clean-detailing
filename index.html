@@ -1984,64 +1984,65 @@
 
       <div>
         <form action="https://formsubmit.co/campbelldario10@gmail.com" method="POST">
-          <input type="hidden" name="_captcha" value="false">
-<input type="hidden" name="_template" value="table">
-<input type="hidden" name="_subject" value="New Serene Clean Request">
-<input type="hidden" name="_next" value="thank-you.html">
+  <!-- FormSubmit config -->
+  <input type="hidden" name="_captcha" value="false">
+  <input type="hidden" name="_template" value="table">
+  <input type="hidden" name="_subject" value="New Serene Clean Request">
+  <!-- Change this if you don't have thank-you.html yet -->
+  <input type="hidden" name="_next" value="thank-you.html">
 
+  <div class="form-row">
+    <div class="field">
+      <label for="name">Full name</label>
+      <input id="name" name="Name" type="text" placeholder="Your name" required />
+    </div>
+    <div class="field">
+      <label for="email">Email</label>
+      <input id="email" name="Email" type="email" placeholder="you@example.com" required />
+    </div>
+  </div>
 
-          <div class="form-row">
-            <div class="field">
-              <label for="name">Full name</label>
-              <input id="name" type="text" placeholder="Your name" required />
-            </div>
-            <div class="field">
-              <label for="email">Email</label>
-              <input id="email" type="email" placeholder="you@example.com" required />
-            </div>
-          </div>
+  <div class="form-row">
+    <div class="field">
+      <label for="phone">Phone</label>
+      <input id="phone" name="Phone" type="tel" placeholder="+1 (___) ___-____" />
+    </div>
+    <div class="field">
+      <label for="service-type">Service type</label>
+      <select id="service-type" name="Service Type">
+        <option>Building cleaning</option>
+        <option>Vehicle detailing</option>
+        <option>Both (building + vehicles)</option>
+      </select>
+    </div>
+  </div>
 
-          <div class="form-row">
-            <div class="field">
-              <label for="phone">Phone</label>
-              <input id="phone" type="tel" placeholder="+1 (___) ___-____" />
-            </div>
-            <div class="field">
-              <label for="service-type">Service type</label>
-              <select id="service-type">
-                <option>Building cleaning</option>
-                <option>Vehicle detailing</option>
-                <option>Both (building + vehicles)</option>
-              </select>
-            </div>
-          </div>
+  <div class="form-row">
+    <div class="field">
+      <label for="location">Location / City</label>
+      <input id="location" name="Location" type="text" placeholder="City / region" />
+    </div>
+    <div class="field">
+      <label for="schedule">Preferred schedule</label>
+      <input id="schedule" name="Preferred Schedule" type="text" placeholder="One-time, weekly, monthly..." />
+    </div>
+  </div>
 
-          <div class="form-row">
-            <div class="field">
-              <label for="location">Location / City</label>
-              <input id="location" type="text" placeholder="City / region" />
-            </div>
-            <div class="field">
-              <label for="schedule">Preferred schedule</label>
-              <input id="schedule" type="text" placeholder="One-time, weekly, monthly..." />
-            </div>
-          </div>
+  <div class="field">
+    <label for="message">Tell us about your space or vehicles</label>
+    <textarea id="message" name="Project Details" placeholder="Example: 3-bedroom townhouse + 2 vehicles, looking for bi-weekly cleaning and monthly detailing." required></textarea>
+  </div>
 
-          <div class="field">
-            <label for="message">Tell us about your space or vehicles</label>
-            <textarea id="message" placeholder="Example: 3-bedroom townhouse + 2 vehicles, looking for bi-weekly cleaning and monthly detailing." required></textarea>
-          </div>
+  <div class="form-footer">
+    <button type="submit" class="btn-primary">
+      Submit quote request
+    </button>
+    <p class="form-note">
+      Your request will be emailed directly to <strong>campbelldario10@gmail.com</strong>.
+    </p>
+  </div>
+</form>
 
-          <div class="form-footer">
-            <button type="submit" class="btn-primary">
-              Submit quote request
-            </button>
-            <p class="form-note">
-              When you submit this form, your email app will open with all details pre-filled to send directly to
-              <strong>campbelldario10@gmail.com</strong>.
-            </p>
-          </div>
-        </form>
 
         <div class="cta-band">
           <div>
