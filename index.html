@@ -12,20 +12,17 @@
 
   <style>
     :root {
-      /* Clean, modern, professional palette */
       --bg: #020617;
-      --bg-soft: #020817;
-      --accent: #38bdf8;           /* sky blue */
+      --accent: #38bdf8;
       --accent-soft: rgba(56, 189, 248, 0.16);
-      --accent-strong: #a855f7;    /* violet */
-      --accent-red: #f97373;       /* soft coral red */
+      --accent-strong: #a855f7;
       --text-main: #f9fafb;
       --text-muted: #cbd5f5;
       --card: rgba(10, 16, 30, 0.98);
-      --border-subtle: rgba(148, 163, 184, 0.22);
+      --border-subtle: rgba(148, 163, 184, 0.25);
       --radius-xl: 18px;
-      --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.78);
-      --nav-height: 72px;
+      --shadow-soft: 0 16px 40px rgba(15, 23, 42, 0.85);
+      --nav-height: 76px;
     }
 
     * {
@@ -37,23 +34,23 @@
     body {
       font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
       background:
-        radial-gradient(circle at top left, rgba(56, 189, 248, 0.18), transparent 55%),
-        radial-gradient(circle at top right, rgba(168, 85, 247, 0.14), transparent 55%),
+        radial-gradient(circle at top left, rgba(56,189,248,.18), transparent 55%),
+        radial-gradient(circle at top right, rgba(168,85,247,.16), transparent 55%),
         radial-gradient(circle at bottom, #020617 0, #000 60%);
       background-color: var(--bg);
       color: var(--text-main);
       min-height: 100vh;
-      line-height: 1.6;
+      line-height: 1.65;
+      font-size: 16px;
       scroll-behavior: smooth;
     }
 
-    /* Background noise / glow */
     body::after {
       content: "";
       position: fixed;
       inset: 0;
       background-image: url("https://grainy-gradients.vercel.app/noise.svg");
-      opacity: 0.15;
+      opacity: 0.12;
       mix-blend-mode: soft-light;
       pointer-events: none;
       z-index: -1;
@@ -84,11 +81,11 @@
       backdrop-filter: blur(18px);
       background: linear-gradient(
         to bottom,
-        rgba(3, 7, 18, 0.96),
-        rgba(3, 7, 18, 0.85),
+        rgba(3,7,18,.98),
+        rgba(3,7,18,.88),
         transparent
       );
-      border-bottom: 1px solid rgba(148, 163, 184, 0.25);
+      border-bottom: 1px solid rgba(148,163,184,.32);
     }
 
     .nav-inner {
@@ -103,14 +100,14 @@
       font-weight: 700;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      font-size: 0.95rem;
-      padding: 0.4rem 0.9rem;
+      font-size: 1rem;
+      padding: 0.45rem 1rem;
       border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.6);
+      border: 1px solid rgba(148,163,184,.7);
       background:
-        radial-gradient(circle at top left, rgba(56, 189, 248, 0.3), transparent 60%),
-        radial-gradient(circle at bottom right, rgba(168, 85, 247, 0.4), transparent 60%);
-      box-shadow: 0 0 0 1px rgba(15, 23, 42, 0.9);
+        radial-gradient(circle at top left, rgba(56,189,248,.3), transparent 60%),
+        radial-gradient(circle at bottom right, rgba(168,85,247,.4), transparent 60%);
+      box-shadow: 0 0 0 1px rgba(15,23,42,.9);
       display: inline-flex;
       align-items: center;
       gap: 0.45rem;
@@ -118,119 +115,136 @@
       isolation: isolate;
     }
 
-    .logo::before {
-      /* subtle paint splash behind logo */
-      content: "";
-      position: absolute;
-      inset: -40%;
-      background:
-        radial-gradient(circle at 10% 20%, rgba(56, 189, 248, 0.25), transparent 55%),
-        radial-gradient(circle at 80% 80%, rgba(168, 85, 247, 0.28), transparent 55%);
-      opacity: 0.9;
-      z-index: -1;
-    }
-
     .logo span {
       color: var(--accent);
     }
 
     .logo-droplet {
-      font-size: 1.15rem;
+      font-size: 1.2rem;
     }
 
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 1rem;
-      font-size: 0.9rem;
+      gap: 1.1rem;
+      font-size: 0.95rem;
     }
 
     .nav-links a {
-      padding: 0.35rem 0.7rem;
+      padding: 0.35rem 0.75rem;
       border-radius: 999px;
       color: var(--text-muted);
       border: 1px solid transparent;
-      transition: all 0.18s ease;
+      transition: all .18s ease;
       white-space: nowrap;
     }
 
     .nav-links a:hover {
       color: var(--text-main);
-      border-color: rgba(148, 163, 184, 0.7);
-      background: rgba(15, 23, 42, 0.98);
+      border-color: rgba(148,163,184,.7);
+      background: rgba(15,23,42,.98);
     }
 
     .nav-cta {
-      padding: 0.45rem 1rem;
+      padding: 0.55rem 1.25rem;
       border-radius: 999px;
-      font-size: 0.9rem;
+      font-size: 0.95rem;
       font-weight: 600;
       border: none;
       background: linear-gradient(120deg, var(--accent), var(--accent-strong));
-      box-shadow: 0 10px 30px rgba(56, 189, 248, 0.7);
+      box-shadow: 0 10px 32px rgba(56,189,248,.75);
       cursor: pointer;
       color: #020617;
-      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      transition: transform .15s ease, box-shadow .15s ease;
+      white-space: nowrap;
     }
 
     .nav-cta:hover {
       transform: translateY(-1px) scale(1.02);
-      box-shadow: 0 16px 40px rgba(56, 189, 248, 0.9);
+      box-shadow: 0 18px 45px rgba(56,189,248,.9);
+    }
+
+    @media (max-width: 880px) {
+      .nav-links { display:none; }
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 3rem 0;
+    }
+
+    .section-header {
+      margin-bottom: 1.8rem;
+    }
+
+    .section-eyebrow {
+      font-size: 0.85rem;
+      color: var(--accent-strong);
+      text-transform: uppercase;
+      letter-spacing: 0.13em;
+      margin-bottom: 0.45rem;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      letter-spacing: -0.03em;
+      margin-bottom: 0.25rem;
+    }
+
+    .section-sub {
+      font-size: 1rem;
+      color: var(--text-muted);
+      max-width: 36rem;
     }
 
     /* HERO */
     .hero {
-      padding: 3.5rem 0 3.25rem;
+      padding: 3.5rem 0 3rem;
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.4fr 1.1fr;
-      gap: 2rem;
+      grid-template-columns: 1.45fr 1.1fr;
+      gap: 2.2rem;
       align-items: center;
     }
 
     @media (max-width: 880px) {
-      .hero-grid {
-        grid-template-columns: 1fr;
-      }
-      .nav-links {
-        display: none;
-      }
+      .hero-grid { grid-template-columns: 1fr; }
     }
 
     .eyebrow {
       display: inline-flex;
       align-items: center;
       gap: 0.45rem;
-      font-size: 0.8rem;
-      padding: 0.25rem 0.7rem 0.25rem 0.35rem;
+      font-size: 0.85rem;
+      padding: 0.3rem 0.75rem 0.3rem 0.4rem;
       border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.6);
+      border: 1px solid rgba(148,163,184,.65);
       background: linear-gradient(
         to right,
-        rgba(56, 189, 248, 0.2),
-        rgba(3, 7, 18, 0.96)
+        rgba(56,189,248,.22),
+        rgba(3,7,18,.96)
       );
       color: var(--accent);
-      margin-bottom: 0.9rem;
+      margin-bottom: 1rem;
     }
 
     .eyebrow-pill {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 22px;
-      height: 22px;
+      width: 24px;
+      height: 24px;
       border-radius: 999px;
-      background: rgba(15, 23, 42, 0.96);
-      border: 1px solid rgba(148, 163, 184, 0.75);
-      font-size: 0.7rem;
+      background: rgba(3,7,18,.96);
+      border: 1px solid rgba(148,163,184,.8);
+      font-size: 0.8rem;
     }
 
     .hero h1 {
-      font-size: clamp(2.35rem, 3vw, 3.2rem);
-      line-height: 1.06;
+      font-size: clamp(2.6rem, 3.4vw, 3.6rem);
+      line-height: 1.05;
       letter-spacing: -0.03em;
       margin-bottom: 1rem;
     }
@@ -242,77 +256,77 @@
     }
 
     .hero-sub {
-      font-size: 0.98rem;
+      font-size: 1.05rem;
       color: var(--text-muted);
-      max-width: 35rem;
+      max-width: 34rem;
       margin-bottom: 1.4rem;
     }
 
     .hero-badges {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.7rem;
-      margin-bottom: 1.6rem;
-      font-size: 0.78rem;
+      gap: 0.6rem;
+      margin-bottom: 1.4rem;
+      font-size: 0.9rem;
     }
 
     .hero-badges span {
       padding: 0.3rem 0.7rem;
       border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.4);
-      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148,163,184,.4);
+      background: rgba(15,23,42,.95);
       color: var(--text-muted);
     }
 
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.9rem;
-      margin-bottom: 1.4rem;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
     }
 
     .btn-primary {
-      padding: 0.8rem 1.5rem;
+      padding: 0.9rem 1.7rem;
       border-radius: 999px;
-      font-size: 0.95rem;
+      font-size: 1rem;
       font-weight: 600;
       border: none;
       cursor: pointer;
       background: linear-gradient(120deg, var(--accent), var(--accent-strong));
       color: #020617;
       box-shadow: var(--shadow-soft);
-      transition: transform 0.14s ease, box-shadow 0.14s ease;
+      transition: transform .14s ease, box-shadow .14s ease;
     }
 
     .btn-primary:hover {
       transform: translateY(-2px) scale(1.02);
-      box-shadow: 0 22px 55px rgba(56, 189, 248, 0.85);
+      box-shadow: 0 24px 60px rgba(56,189,248,.9);
     }
 
     .btn-ghost {
-      padding: 0.8rem 1.45rem;
+      padding: 0.9rem 1.5rem;
       border-radius: 999px;
-      font-size: 0.95rem;
+      font-size: 1rem;
       font-weight: 500;
-      border: 1px solid rgba(148, 163, 184, 0.8);
-      background: rgba(15, 23, 42, 0.88);
+      border: 1px solid rgba(148,163,184,.9);
+      background: rgba(15,23,42,.92);
       color: var(--text-main);
       cursor: pointer;
       display: inline-flex;
       align-items: center;
       gap: 0.4rem;
       backdrop-filter: blur(10px);
-      transition: background 0.14s ease, transform 0.14s ease, box-shadow 0.14s ease;
+      transition: background .14s ease, transform .14s ease, box-shadow .14s ease;
     }
 
     .btn-ghost:hover {
-      background: rgba(15, 23, 42, 0.98);
+      background: rgba(15,23,42,1);
       transform: translateY(-1px);
-      box-shadow: 0 14px 35px rgba(15, 23, 42, 0.9);
+      box-shadow: 0 16px 40px rgba(15,23,42,.95);
     }
 
     .hero-meta {
-      font-size: 0.8rem;
+      font-size: 0.9rem;
       color: var(--text-muted);
       display: flex;
       flex-wrap: wrap;
@@ -329,69 +343,54 @@
     .hero-card {
       position: relative;
       border-radius: 26px;
-      padding: 1rem;
+      padding: 1.1rem;
       background:
-        radial-gradient(circle at top left, rgba(56, 189, 248, 0.3), rgba(3, 7, 18, 0.98));
+        radial-gradient(circle at top left, rgba(56,189,248,.3), rgba(3,7,18,.98));
       box-shadow: var(--shadow-soft);
       overflow: hidden;
-      border: 1px solid rgba(148, 163, 184, 0.25);
+      border: 1px solid rgba(148,163,184,.3);
       isolation: isolate;
-    }
-
-    .hero-card::before {
-      /* cartoon-ish splash behind content */
-      content: "";
-      position: absolute;
-      width: 180%;
-      height: 180%;
-      top: -40%;
-      left: -40%;
-      border-radius: 46% 54% 64% 36%;
-      background:
-        radial-gradient(circle at 10% 10%, rgba(56, 189, 248, 0.26), transparent 55%),
-        radial-gradient(circle at 80% 80%, rgba(168, 85, 247, 0.32), transparent 60%);
-      opacity: 0.5;
-      filter: blur(4px);
-      z-index: -1;
     }
 
     .hero-card-inner {
       position: relative;
       border-radius: 20px;
       padding: 1.1rem;
-      background: radial-gradient(circle at 80% 0, rgba(168, 85, 247, 0.3), rgba(3, 7, 18, 0.98));
-      border: 1px solid rgba(148, 163, 184, 0.3);
+      background: radial-gradient(circle at 80% 0, rgba(168,85,247,.3), rgba(3,7,18,.98));
+      border: 1px solid rgba(148,163,184,.35);
+      font-size: 0.88rem;
     }
 
     .hero-card-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 0.75rem;
-      font-size: 0.78rem;
+      margin-bottom: 0.9rem;
+      font-size: 0.85rem;
     }
 
     .hero-tag {
-      padding: 0.2rem 0.6rem;
+      padding: 0.2rem 0.7rem;
       border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.5);
-      background: rgba(15, 23, 42, 0.98);
+      border: 1px solid rgba(148,163,184,.6);
+      background: rgba(15,23,42,.98);
       color: var(--accent);
       display: inline-flex;
       align-items: center;
       gap: 0.35rem;
+      font-size: 0.8rem;
     }
 
     .hero-tag-dot {
-      width: 8px;
-      height: 8px;
+      width: 9px;
+      height: 9px;
       border-radius: 999px;
       background: #22c55e;
-      box-shadow: 0 0 12px rgba(34, 197, 94, 0.9);
+      box-shadow: 0 0 12px rgba(34,197,94,.9);
     }
 
     .hero-card-metric {
-      font-size: 0.75rem;
+      font-size: 0.8rem;
       text-align: right;
       color: var(--text-muted);
     }
@@ -401,32 +400,39 @@
     }
 
     .hero-card-metric strong {
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       color: var(--accent-strong);
     }
 
     .hero-card-main {
       display: grid;
-      grid-template-columns: 1.1fr 1.1fr;
-      gap: 0.8rem;
-      margin-bottom: 0.9rem;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.9rem;
+      margin-bottom: 1rem;
+    }
+
+    @media (max-width: 540px) {
+      .hero-card-main { grid-template-columns: 1fr; }
     }
 
     .split-card {
-      background: rgba(3, 7, 18, 0.96);
+      background: rgba(3,7,18,.96);
       border-radius: 16px;
       padding: 0.8rem;
-      border: 1px solid rgba(148, 163, 184, 0.35);
-      font-size: 0.78rem;
+      border: 1px solid rgba(148,163,184,.35);
+      font-size: 0.85rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
     }
 
     .split-card h3 {
-      font-size: 0.85rem;
-      margin-bottom: 0.2rem;
+      font-size: 0.95rem;
+      margin-bottom: 0.1rem;
     }
 
     .split-card p {
-      font-size: 0.76rem;
+      font-size: 0.85rem;
       color: var(--text-muted);
     }
 
@@ -434,23 +440,25 @@
       display: flex;
       flex-wrap: wrap;
       gap: 0.35rem;
-      margin-top: 0.4rem;
+      margin-top: 0.3rem;
     }
 
     .split-tags span {
-      padding: 0.18rem 0.5rem;
+      padding: 0.18rem 0.55rem;
       border-radius: 999px;
       background: var(--accent-soft);
-      border: 1px solid rgba(56, 189, 248, 0.4);
-      font-size: 0.65rem;
+      border: 1px solid rgba(56,189,248,.4);
+      font-size: 0.72rem;
     }
 
     .hero-card-footer {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: 0.73rem;
+      font-size: 0.8rem;
       color: var(--text-muted);
+      gap: 0.4rem;
+      flex-wrap: wrap;
     }
 
     .hero-steps {
@@ -460,99 +468,68 @@
     }
 
     .hero-step {
-      padding: 0.18rem 0.45rem;
+      padding: 0.18rem 0.5rem;
       border-radius: 999px;
-      border: 1px dashed rgba(148, 163, 184, 0.6);
-      background: rgba(15, 23, 42, 0.9);
+      border: 1px dashed rgba(148,163,184,.65);
+      background: rgba(15,23,42,.95);
     }
 
     .hero-fleets {
       display: flex;
       align-items: center;
-      gap: 0.3rem;
+      gap: 0.35rem;
     }
 
-    /* SECTIONS */
-    section {
-      padding: 2.75rem 0;
-    }
-
-    .section-header {
-      margin-bottom: 1.8rem;
-    }
-
-    .section-eyebrow {
-      font-size: 0.8rem;
-      color: var(--accent-strong);
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      margin-bottom: 0.35rem;
-    }
-
-    .section-title {
-      font-size: 1.6rem;
-      letter-spacing: -0.03em;
-      margin-bottom: 0.35rem;
-    }
-
-    .section-sub {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      max-width: 34rem;
-    }
-
-    /* SERVICES TABS */
+    /* SERVICES */
     .tabs {
       display: flex;
-      gap: 0.7rem;
-      margin-bottom: 1.6rem;
+      gap: 0.8rem;
+      margin-bottom: 1.8rem;
       flex-wrap: wrap;
     }
 
     .tab-btn {
-      padding: 0.6rem 1.2rem;
+      padding: 0.65rem 1.3rem;
       border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.6);
-      background: rgba(3, 7, 18, 0.9);
+      border: 1px solid rgba(148,163,184,.65);
+      background: rgba(3,7,18,.94);
       color: var(--text-muted);
-      font-size: 0.86rem;
+      font-size: 0.95rem;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
-      gap: 0.4rem;
-      transition: all 0.16s ease;
+      gap: 0.45rem;
+      transition: all .16s ease;
     }
 
     .tab-btn.active {
       background: linear-gradient(
         to right,
-        rgba(56, 189, 248, 0.3),
-        rgba(3, 7, 18, 0.98)
+        rgba(56,189,248,.3),
+        rgba(3,7,18,.98)
       );
       color: var(--accent-strong);
       border-color: var(--accent-strong);
-      box-shadow: 0 12px 30px rgba(56, 189, 248, 0.6);
+      box-shadow: 0 14px 35px rgba(56,189,248,.7);
     }
 
     .tab-icon {
-      font-size: 1rem;
+      font-size: 1.1rem;
     }
 
     .services-grid {
       display: grid;
-      grid-template-columns: 1.4fr 1fr;
-      gap: 1.5rem;
+      grid-template-columns: 1.4fr 1.05fr;
+      gap: 1.7rem;
     }
 
     @media (max-width: 880px) {
-      .services-grid {
-        grid-template-columns: 1fr;
-      }
+      .services-grid { grid-template-columns: 1fr; }
     }
 
     .services-list {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(230px,1fr));
       gap: 1rem;
     }
 
@@ -561,42 +538,19 @@
       border-radius: var(--radius-xl);
       padding: 1rem;
       border: 1px solid var(--border-subtle);
-      box-shadow: 0 14px 35px rgba(3, 7, 18, 0.9);
+      box-shadow: 0 14px 35px rgba(3,7,18,.9);
       position: relative;
       overflow: hidden;
       isolation: isolate;
     }
 
-    .card::before {
-      /* subtle paint blur on all cards */
-      content: "";
-      position: absolute;
-      width: 160%;
-      height: 160%;
-      inset: -40%;
-      border-radius: 60% 40% 70% 30%;
-      background:
-        radial-gradient(circle at 0 0, rgba(56, 189, 248, 0.15), transparent 60%),
-        radial-gradient(circle at 100% 100%, rgba(168, 85, 247, 0.14), transparent 60%);
-      opacity: 0.35;
-      filter: blur(8px);
-      z-index: -1;
-      transform: translate3d(0, 6px, 0);
-      transition: opacity 0.2s ease, transform 0.2s ease;
-    }
-
-    .card:hover::before {
-      opacity: 0.55;
-      transform: translate3d(0, -2px, 0);
-    }
-
     .card h3 {
-      font-size: 0.95rem;
+      font-size: 1rem;
       margin-bottom: 0.3rem;
     }
 
     .card p {
-      font-size: 0.82rem;
+      font-size: 0.9rem;
       color: var(--text-muted);
     }
 
@@ -604,30 +558,30 @@
       display: inline-flex;
       align-items: center;
       gap: 0.25rem;
-      padding: 0.15rem 0.55rem;
+      padding: 0.18rem 0.6rem;
       border-radius: 999px;
       background: var(--accent-soft);
       color: var(--accent);
-      font-size: 0.7rem;
-      margin-bottom: 0.4rem;
+      font-size: 0.78rem;
+      margin-bottom: 0.45rem;
     }
 
     .services-detail {
-      background: radial-gradient(circle at top, rgba(56, 189, 248, 0.24), rgba(3, 7, 18, 0.98));
+      background: radial-gradient(circle at top, rgba(56,189,248,.24), rgba(3,7,18,.98));
       border-radius: var(--radius-xl);
-      padding: 1rem;
-      border: 1px solid rgba(148, 163, 184, 0.35);
+      padding: 1.1rem;
+      border: 1px solid rgba(148,163,184,.35);
       box-shadow: var(--shadow-soft);
-      font-size: 0.82rem;
+      font-size: 0.95rem;
     }
 
     .services-detail h3 {
-      font-size: 0.9rem;
-      margin-bottom: 0.3rem;
+      font-size: 1.1rem;
+      margin-bottom: 0.4rem;
     }
 
     .services-detail ul {
-      padding-left: 1rem;
+      padding-left: 1.1rem;
       margin-bottom: 0.6rem;
     }
 
@@ -636,115 +590,96 @@
       color: var(--text-muted);
     }
 
-    /* WHY US / INDUSTRIES */
+    /* WHY + INDUSTRIES */
     .two-col {
       display: grid;
-      grid-template-columns: 1.1fr 1.1fr;
-      gap: 1.5rem;
+      grid-template-columns: 1.15fr 1.1fr;
+      gap: 2rem;
     }
 
     @media (max-width: 880px) {
-      .two-col {
-        grid-template-columns: 1fr;
-      }
+      .two-col { grid-template-columns: 1fr; }
     }
 
     .badge-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-      gap: 0.8rem;
-      font-size: 0.82rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1rem;
     }
 
     .badge-card {
-      background: rgba(3, 7, 18, 0.96);
+      background: rgba(3,7,18,.96);
       border-radius: var(--radius-xl);
-      padding: 0.85rem;
+      padding: 0.9rem;
       border: 1px solid var(--border-subtle);
       display: flex;
-      gap: 0.55rem;
+      gap: 0.6rem;
       align-items: flex-start;
+      flex: 1 1 0;
+      min-width: 230px;
     }
 
     .badge-icon {
-      font-size: 1.1rem;
+      font-size: 1.25rem;
+      margin-top: 0.1rem;
     }
 
     .badge-title {
-      font-size: 0.86rem;
+      font-size: 0.98rem;
       margin-bottom: 0.15rem;
+    }
+
+    .badge-text {
+      font-size: 0.9rem;
+      color: var(--text-muted);
     }
 
     .chip-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.4rem;
-      margin-top: 0.5rem;
+      gap: 0.45rem;
+      margin-top: 0.7rem;
     }
 
     .chip {
-      font-size: 0.72rem;
-      padding: 0.15rem 0.6rem;
+      font-size: 0.8rem;
+      padding: 0.18rem 0.7rem;
       border-radius: 999px;
-      background: rgba(3, 7, 18, 0.95);
-      border: 1px solid rgba(148, 163, 184, 0.55);
+      background: rgba(3,7,18,.96);
+      border: 1px solid rgba(148,163,184,.55);
       color: var(--text-muted);
     }
 
     /* PROCESS */
     .process-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(230px,1fr));
       gap: 1rem;
     }
 
     .step-num {
-      width: 26px;
-      height: 26px;
+      width: 28px;
+      height: 28px;
       border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.7);
+      border: 1px solid rgba(148,163,184,.7);
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      font-size: 0.8rem;
-      margin-bottom: 0.5rem;
-      background: rgba(3, 7, 18, 0.98);
+      font-size: 0.85rem;
+      margin-bottom: 0.45rem;
+      background: rgba(3,7,18,.98);
     }
 
-    /* TESTIMONIALS */
+    /* TESTIMONIALS (trimmed copy) */
     .testimonials-section {
       background:
-        radial-gradient(circle at top, rgba(56, 189, 248, 0.18), rgba(3, 7, 18, 0.98));
-      border-top: 1px solid rgba(148, 163, 184, 0.25);
-      border-bottom: 1px solid rgba(148, 163, 184, 0.25);
+        radial-gradient(circle at top, rgba(56,189,248,.18), rgba(3,7,18,.98));
+      border-top: 1px solid rgba(148,163,184,.25);
+      border-bottom: 1px solid rgba(148,163,184,.25);
       position: relative;
       overflow: hidden;
       isolation: isolate;
-    }
-
-    .testimonials-section::before,
-    .testimonials-section::after {
-      /* big background paint splashes */
-      content: "";
-      position: absolute;
-      width: 360px;
-      height: 360px;
-      border-radius: 40% 60% 70% 30%;
-      filter: blur(18px);
-      opacity: 0.25;
-      z-index: -1;
-    }
-
-    .testimonials-section::before {
-      top: -80px;
-      left: -40px;
-      background: radial-gradient(circle at 0 0, rgba(56, 189, 248, 0.5), transparent 70%);
-    }
-
-    .testimonials-section::after {
-      bottom: -120px;
-      right: -60px;
-      background: radial-gradient(circle at 100% 100%, rgba(168, 85, 247, 0.55), transparent 70%);
     }
 
     .testimonials-grid {
@@ -754,127 +689,83 @@
     }
 
     .testimonial-card {
-      position: relative;
-      background: rgba(3, 7, 18, 0.96);
-      border-radius: 24px;
-      border: 1px solid rgba(148, 163, 184, 0.55);
+      background: rgba(3,7,18,.96);
+      border-radius: 22px;
+      border: 1px solid rgba(148,163,184,.55);
       padding: 0.9rem;
       display: flex;
       gap: 0.7rem;
-      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7);
+      box-shadow: 0 16px 40px rgba(0,0,0,.7);
       overflow: hidden;
       isolation: isolate;
       transform: translateY(0);
-      transition: transform 0.18s ease, box-shadow 0.18s ease;
-    }
-
-    .testimonial-card::before,
-    .testimonial-card::after {
-      /* wet paint splash effect on hover */
-      content: "";
-      position: absolute;
-      width: 180%;
-      height: 180%;
-      top: -60%;
-      left: -40%;
-      border-radius: 55% 45% 65% 35%;
-      background:
-        radial-gradient(circle at 0 0, rgba(56, 189, 248, 0.55), transparent 60%),
-        radial-gradient(circle at 80% 80%, rgba(168, 85, 247, 0.55), transparent 65%);
-      opacity: 0;
-      filter: blur(10px);
-      mix-blend-mode: screen;
-      z-index: -1;
-      transform: scale(0.92) rotate(-6deg);
-      transition: opacity 0.22s ease, transform 0.22s ease;
-    }
-
-    .testimonial-card::after {
-      top: auto;
-      bottom: -65%;
-      left: -20%;
-      border-radius: 45% 55% 35% 65%;
-      background:
-        radial-gradient(circle at 10% 90%, rgba(248, 250, 252, 0.3), transparent 55%),
-        radial-gradient(circle at 90% 10%, rgba(56, 189, 248, 0.4), transparent 60%);
-      transform: scale(0.9) rotate(4deg);
+      transition: transform .16s ease, box-shadow .16s ease;
+      font-size: 0.9rem;
     }
 
     .testimonial-card:hover {
-      transform: translateY(-6px) rotate(-0.5deg);
-      box-shadow: 0 26px 70px rgba(15, 23, 42, 0.95);
-    }
-
-    .testimonial-card:hover::before,
-    .testimonial-card:hover::after {
-      opacity: 1;
-      transform: scale(1.05) rotate(0deg);
+      transform: translateY(-4px);
+      box-shadow: 0 24px 70px rgba(15,23,42,.95);
     }
 
     .testimonial-avatar {
-      width: 44px;
-      height: 44px;
+      width: 46px;
+      height: 46px;
       border-radius: 999px;
       overflow: hidden;
       flex-shrink: 0;
-      border: 2px solid rgba(248, 250, 252, 0.7);
-      background: rgba(15, 23, 42, 0.9);
+      border: 2px solid rgba(248,250,252,.7);
+      background: rgba(15,23,42,.9);
     }
 
     .testimonial-name {
-      font-size: 0.9rem;
+      font-size: 0.98rem;
       font-weight: 600;
     }
 
     .testimonial-meta {
-      font-size: 0.75rem;
+      font-size: 0.78rem;
       color: var(--accent-strong);
-      margin-bottom: 0.25rem;
+      margin-bottom: 0.2rem;
     }
 
     .testimonial-text {
-      font-size: 0.8rem;
+      font-size: 0.88rem;
       color: var(--text-muted);
     }
 
     .stars {
       color: #facc15;
-      font-size: 0.75rem;
-      margin-bottom: 0.15rem;
+      font-size: 0.78rem;
+      margin-bottom: 0.1rem;
     }
 
     .testimonial-badge-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.3rem;
-      margin-top: 0.35rem;
+      gap: 0.28rem;
+      margin-top: 0.3rem;
     }
 
     .testimonial-badge {
-      font-size: 0.7rem;
-      padding: 0.14rem 0.5rem;
+      font-size: 0.75rem;
+      padding: 0.12rem 0.5rem;
       border-radius: 999px;
-      border: 1px solid rgba(248, 250, 252, 0.18);
-      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(248,250,252,.18);
+      background: rgba(15,23,42,.9);
     }
 
     /* OWNER / ABOUT */
-    .owner-layout {
-      display: grid;
-      grid-template-columns: minmax(0, 1.1fr);
-      gap: 1.2rem;
-    }
-
     .owner-header {
       display: flex;
       align-items: center;
-      gap: 0.8rem;
+      gap: 0.85rem;
       margin-bottom: 0.7rem;
     }
 
     .owner-avatar {
-      width: 64px;
-      height: 64px;
+      width: 68px;
+      height: 68px;
       border-radius: 999px;
       overflow: hidden;
       border: 2px solid var(--accent-strong);
@@ -882,17 +773,17 @@
     }
 
     .owner-name {
-      font-size: 1rem;
+      font-size: 1.05rem;
       font-weight: 600;
     }
 
     .owner-tagline {
-      font-size: 0.8rem;
+      font-size: 0.85rem;
       color: var(--accent);
     }
 
     .owner-body p {
-      font-size: 0.86rem;
+      font-size: 0.9rem;
       color: var(--text-muted);
       margin-bottom: 0.55rem;
     }
@@ -900,73 +791,68 @@
     .owner-stats {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.6rem;
+      gap: 0.55rem;
       margin-top: 0.4rem;
     }
 
     .owner-stat {
-      padding: 0.4rem 0.7rem;
+      padding: 0.38rem 0.7rem;
       border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.6);
-      font-size: 0.78rem;
-      background: rgba(3, 7, 18, 0.96);
+      border: 1px solid rgba(148,163,184,.7);
+      font-size: 0.82rem;
+      background: rgba(3,7,18,.96);
     }
 
     /* CONTACT */
     .contact-grid {
       display: grid;
-      grid-template-columns: 1.15fr 1.1fr;
-      gap: 1.5rem;
+      grid-template-columns: 1.1fr 1.1fr;
+      gap: 1.8rem;
     }
 
     @media (max-width: 880px) {
-      .contact-grid {
-        grid-template-columns: 1fr;
-      }
+      .contact-grid { grid-template-columns: 1fr; }
     }
 
     .contact-card {
-      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.22), rgba(3, 7, 18, 0.98));
+      background: radial-gradient(circle at top left, rgba(56,189,248,.22), rgba(3,7,18,.98));
       border-radius: var(--radius-xl);
       padding: 1.1rem;
-      border: 1px solid rgba(148, 163, 184, 0.4);
+      border: 1px solid rgba(148,163,184,.4);
       box-shadow: var(--shadow-soft);
-      font-size: 0.86rem;
+      font-size: 0.95rem;
     }
 
     .contact-card h3 {
-      font-size: 1rem;
+      font-size: 1.1rem;
       margin-bottom: 0.4rem;
     }
 
-    .contact-card p {
+    .contact-card p,
+    .contact-card li {
       color: var(--text-muted);
-      margin-bottom: 0.6rem;
+      font-size: 0.9rem;
     }
 
     .contact-card ul {
-      padding-left: 1rem;
-      margin-bottom: 0.7rem;
-    }
-
-    .contact-card li {
-      margin-bottom: 0.25rem;
+      padding-left: 1.1rem;
+      margin-bottom: 0.6rem;
     }
 
     form {
-      background: rgba(3, 7, 18, 0.98);
+      background: rgba(3,7,18,.98);
       border-radius: var(--radius-xl);
-      padding: 1rem;
+      padding: 1.1rem;
       border: 1px solid var(--border-subtle);
-      box-shadow: 0 14px 35px rgba(3, 7, 18, 0.95);
-      font-size: 0.86rem;
+      box-shadow: 0 16px 40px rgba(3,7,18,.96);
+      font-size: 0.95rem;
     }
 
     .form-row {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 0.75rem;
-      margin-bottom: 0.8rem;
+      grid-template-columns: repeat(auto-fit, minmax(170px,1fr));
+      gap: 0.85rem;
+      margin-bottom: 0.85rem;
     }
 
     .field {
@@ -976,7 +862,7 @@
     }
 
     .field label {
-      font-size: 0.8rem;
+      font-size: 0.85rem;
       color: var(--text-muted);
     }
 
@@ -984,17 +870,17 @@
     .field select,
     .field textarea {
       border-radius: 10px;
-      border: 1px solid rgba(30, 64, 175, 0.9);
-      background: rgba(3, 7, 18, 0.9);
+      border: 1px solid rgba(30,64,175,.95);
+      background: rgba(3,7,18,.92);
       color: var(--text-main);
-      padding: 0.55rem 0.6rem;
-      font-size: 0.86rem;
+      padding: 0.6rem 0.65rem;
+      font-size: 0.9rem;
       outline: none;
-      transition: border-color 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
+      transition: border-color .12s ease, box-shadow .12s ease, background .12s ease;
     }
 
     .field textarea {
-      min-height: 90px;
+      min-height: 100px;
       resize: vertical;
     }
 
@@ -1002,8 +888,8 @@
     .field select:focus,
     .field textarea:focus {
       border-color: var(--accent-strong);
-      box-shadow: 0 0 0 1px rgba(168, 85, 247, 0.4);
-      background: rgba(3, 7, 18, 1);
+      box-shadow: 0 0 0 1px rgba(168,85,247,.4);
+      background: rgba(3,7,18,1);
     }
 
     .form-footer {
@@ -1016,29 +902,28 @@
     }
 
     .form-note {
-      font-size: 0.75rem;
+      font-size: 0.8rem;
       color: var(--text-muted);
       max-width: 280px;
     }
 
-    /* CTA BAND */
     .cta-band {
-      margin-top: 2.2rem;
-      padding: 1.2rem 1rem;
+      margin-top: 2rem;
+      padding: 1.1rem 1rem;
       border-radius: 22px;
       background: linear-gradient(
         120deg,
-        rgba(56, 189, 248, 0.22),
-        rgba(168, 85, 247, 0.2),
-        rgba(3, 7, 18, 0.98)
+        rgba(56,189,248,.22),
+        rgba(168,85,247,.2),
+        rgba(3,7,18,.98)
       );
-      border: 1px solid rgba(148, 163, 184, 0.5);
+      border: 1px solid rgba(148,163,184,.5);
       display: flex;
       flex-wrap: wrap;
       gap: 0.7rem;
       align-items: center;
       justify-content: space-between;
-      font-size: 0.88rem;
+      font-size: 0.95rem;
     }
 
     .cta-band strong {
@@ -1047,9 +932,9 @@
 
     /* FOOTER */
     footer {
-      border-top: 1px solid rgba(148, 163, 184, 0.35);
+      border-top: 1px solid rgba(148,163,184,.35);
       padding: 1.4rem 0 2rem;
-      font-size: 0.78rem;
+      font-size: 0.85rem;
       color: var(--text-muted);
     }
 
@@ -1060,17 +945,12 @@
       gap: 0.6rem;
     }
 
-    footer span {
-      opacity: 0.9;
-    }
-
-    /* Simple fade-in on scroll */
+    /* REVEAL */
     .reveal {
       opacity: 0;
-      transform: translateY(12px);
-      transition: opacity 0.4s ease, transform 0.4s ease;
+      transform: translateY(14px);
+      transition: opacity .4s ease, transform .4s ease;
     }
-
     .reveal.visible {
       opacity: 1;
       transform: translateY(0);
@@ -1088,15 +968,15 @@
 
       <nav class="nav-links">
         <a href="#services">Services</a>
-        <a href="#why-us">Why Us</a>
+        <a href="#why-us">Why us</a>
         <a href="#industries">Industries</a>
-        <a href="#testimonials">Testimonials</a>
+        <a href="#testimonials">Reviews</a>
         <a href="#about">About</a>
         <a href="#contact">Contact</a>
       </nav>
 
       <button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
-        Get a Free Quote
+        Get a free quote
       </button>
     </div>
   </header>
@@ -1107,34 +987,32 @@
       <div>
         <div class="eyebrow">
           <div class="eyebrow-pill">✨</div>
-          Detail-obsessed care for spaces & vehicles
+          Cleaning & detailing for real life, not showrooms.
         </div>
         <h1>
-          Restore <span>serenity</span> to every
-          home, business & ride.
+          Clean, calm spaces. <span>Detailed</span> vehicles.
         </h1>
         <p class="hero-sub">
-          Serene Clean Detailing blends craftsmanship, warmth and meticulous standards —
-          delivering deep-cleaned buildings and premium vehicle detailing with the calm, polished finish
-          your lifestyle deserves.
+          Serene Clean Detailing keeps your home, business and vehicles fresh, organized and ready —
+          without chemicals, chaos or guesswork.
         </p>
         <div class="hero-badges">
-          <span>🏢 Residential & Commercial</span>
-          <span>🚗 Vehicle & Fleet Detailing</span>
-          <span>♻️ Eco-friendly products</span>
-          <span>📍 Mobile & on-site service</span>
+          <span>🏢 Homes & offices</span>
+          <span>🚗 Vehicles & fleets</span>
+          <span>♻️ Eco-conscious products</span>
+          <span>📍 Mobile & on-site</span>
         </div>
         <div class="hero-actions">
           <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
             Book a Serene Clean
           </button>
           <button class="btn-ghost" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})">
-            View Services <span>↓</span>
+            Browse services <span>↓</span>
           </button>
         </div>
         <div class="hero-meta">
-          <span><strong>Hybrid Cleaning & Detailing</strong> — buildings + vehicles</span>
-          <span>Trusted by homeowners, business owners, realtors & fleet managers.</span>
+          <span><strong>Hybrid cleaning & detailing</strong> — one team for your space and your ride.</span>
+          <span>Owner-led. Detail-obsessed. Easy to work with.</span>
         </div>
       </div>
 
@@ -1142,48 +1020,46 @@
       <div class="hero-card">
         <div class="hero-card-inner">
           <div class="hero-card-header">
-            <div>
-              <div class="hero-tag">
-                <span class="hero-tag-dot"></span>
-                Jobs in progress · Live
-              </div>
+            <div class="hero-tag">
+              <span class="hero-tag-dot"></span>
+              Today’s schedule · Live
             </div>
             <div class="hero-card-metric">
-              <span>Average client rating</span>
+              <span>Client rating</span>
               <strong>4.9 / 5</strong>
             </div>
           </div>
 
           <div class="hero-card-main">
             <div class="split-card">
-              <h3>Today’s Spaces</h3>
-              <p>Move-out deep clean · Office refresh · Luxury condo reset.</p>
+              <h3>Spaces</h3>
+              <p>Move-out clean · Office reset · Condo refresh.</p>
               <div class="split-tags">
-                <span>Move-in ready</span>
-                <span>Post-construction</span>
-                <span>Sanitized surfaces</span>
+                <span>Deep clean</span>
+                <span>Post-reno</span>
+                <span>Windows</span>
               </div>
             </div>
             <div class="split-card">
-              <h3>Today’s Vehicles</h3>
-              <p>Executive SUV detail · Dealership prep · Interior detox.</p>
+              <h3>Vehicles</h3>
+              <p>Family SUV detail · Work truck detox · Fleet wash.</p>
               <div class="split-tags">
-                <span>On-site mobile</span>
-                <span>Fleet care</span>
                 <span>Interior shampoo</span>
+                <span>Hand wash</span>
+                <span>Odor removal</span>
               </div>
             </div>
           </div>
 
           <div class="hero-card-footer">
             <div class="hero-steps">
-              <div class="hero-step">1. Schedule</div>
-              <div class="hero-step">2. We arrive prepared</div>
-              <div class="hero-step">3. You enjoy serenity</div>
+              <div class="hero-step">1. Send details</div>
+              <div class="hero-step">2. We show up ready</div>
+              <div class="hero-step">3. You enjoy the calm</div>
             </div>
             <div class="hero-fleets">
               <span>🧴</span>
-              <span>Ask about monthly subscriptions & corporate fleet plans.</span>
+              <span>Ask about monthly plans & fleets.</span>
             </div>
           </div>
         </div>
@@ -1196,105 +1072,94 @@
     <div class="container reveal">
       <div class="section-header">
         <div class="section-eyebrow">Services</div>
-        <h2 class="section-title">One company. Two expert service lines.</h2>
+        <h2 class="section-title">One team for buildings and vehicles.</h2>
         <p class="section-sub">
-          From cozy homes and busy offices to single vehicles and full fleets, Serene Clean Detailing
-          keeps every environment aligned with your standards of calm, cleanliness and professionalism.
+          Pick what you need today and scale into subscriptions or fleet programs later.
         </p>
       </div>
 
       <div class="tabs">
         <button class="tab-btn active" data-tab="buildings">
-          <span class="tab-icon">🏢</span> Building Cleaning
+          <span class="tab-icon">🏢</span> Building cleaning
         </button>
         <button class="tab-btn" data-tab="vehicles">
-          <span class="tab-icon">🚗</span> Vehicle Detailing
+          <span class="tab-icon">🚗</span> Vehicle detailing
         </button>
       </div>
 
       <div class="services-grid">
-        <!-- Left: cards -->
         <div class="services-list">
-          <!-- Building services -->
+          <!-- building cards -->
           <div class="card tab-content" data-tab-content="buildings">
-            <div class="pill">Residential Cleaning</div>
-            <h3>Apartments & Homes</h3>
+            <div class="pill">Homes</div>
+            <h3>Apartments & houses</h3>
             <p>
-              Regular, deep and move-in/move-out cleaning tailored to your lifestyle. Every room refreshed,
-              sanitized and reset for peace of mind.
-            </p>
-          </div>
-
-          <div class="card tab-content" data-tab-content="buildings">
-            <div class="pill">Commercial & Specialty</div>
-            <h3>Offices, Retail & Theaters</h3>
-            <p>
-              Detail-focused cleaning for workplaces, retail spaces, theaters, kitchens and more — including
-              post-construction and turnover cleaning.
+              Weekly upkeep, deep cleans and move-in / move-out resets for busy people.
             </p>
           </div>
 
           <div class="card tab-content" data-tab-content="buildings">
-            <div class="pill">Floor & Glass Care</div>
-            <h3>Floors, Windows & Touchpoints</h3>
+            <div class="pill">Commercial</div>
+            <h3>Offices & retail</h3>
             <p>
-              Streak-free windows, polished floors and disinfected high-touch areas using eco-conscious,
-              non-toxic cleaning products.
+              Nightly or weekly cleaning for workspaces, shops and studios that need to look sharp.
             </p>
           </div>
 
-          <!-- Vehicle services -->
-          <div class="card tab-content" data-tab-content="vehicles" style="display:none;">
-            <div class="pill">Personal Vehicles</div>
-            <h3>Interior & Exterior Detailing</h3>
+          <div class="card tab-content" data-tab-content="buildings">
+            <div class="pill">Specialty</div>
+            <h3>Post-construction</h3>
             <p>
-              Hand wash, wax, polish, interior vacuuming, shampooing and odor removal. Your vehicle feels
-              like a calm, fresh space to drive.
+              Dust, debris and final touches after renos or new builds so clients see the finished work, not the mess.
             </p>
           </div>
 
+          <!-- vehicle cards -->
           <div class="card tab-content" data-tab-content="vehicles" style="display:none;">
-            <div class="pill">Fleet & Corporate</div>
-            <h3>Fleet & Dealership Services</h3>
+            <div class="pill">Personal</div>
+            <h3>Interior & exterior detail</h3>
             <p>
-              Consistent detailing and cleaning for corporate fleets, dealerships and rental companies, aligned
-              with your brand standards.
+              Hand wash, wax and interior reset so your daily driver feels brand new.
             </p>
           </div>
 
           <div class="card tab-content" data-tab-content="vehicles" style="display:none;">
-            <div class="pill">Mobile Units</div>
-            <h3>On-site Mobile Detailing</h3>
+            <div class="pill">Fleet</div>
+            <h3>Work & rental vehicles</h3>
             <p>
-              We come to you — at home, work or your facility — minimizing downtime while maximizing results
-              for drivers and organizations.
+              Consistent detailing for company fleets, taxis and rentals built around your schedule.
+            </p>
+          </div>
+
+          <div class="card tab-content" data-tab-content="vehicles" style="display:none;">
+            <div class="pill">Mobile</div>
+            <h3>We come to you</h3>
+            <p>
+              On-site service at homes, offices or yards — less downtime, more clean time.
             </p>
           </div>
         </div>
 
-        <!-- Right: detail text -->
         <div class="services-detail" id="services-detail">
-          <h3>Serene Clean Building Detailing</h3>
+          <h3>Building cleaning that feels easy.</h3>
           <p>
-            Our building cleaning teams specialize in creating calm, spotless environments across residential and
-            commercial properties. Services can be booked one-time, scheduled weekly, or packaged into longer-term
-            contracts for property managers and businesses.
+            Simple bookings, clear pricing and the same faces at your door. We handle:
           </p>
           <ul>
-            <li>Residential cleaning for homes, condos, apartments & townhouses</li>
-            <li>Commercial cleaning for offices, retail, theaters, kitchens & warehouses</li>
-            <li>Deep cleaning, sanitization & post-construction reset</li>
-            <li>Window cleaning, floor care & specialty surfaces</li>
+            <li>Regular, deep and move-in / move-out cleans</li>
+            <li>Offices, retail spaces, clinics and studios</li>
+            <li>Post-renovation and post-construction resets</li>
+            <li>Windows, floors and high-touch surfaces</li>
           </ul>
           <p>
-            Ask about move-in/move-out support and bundled building + vehicle packages for a seamless experience.
+            Start with a one-time visit, or lock in a weekly or monthly schedule.
           </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- WHY US & INDUSTRIES -->
+  <!-- WHY + INDUSTRIES -->
   <section id="why-us">
     <div class="container two-col reveal">
       <div>
@@ -1302,48 +1167,48 @@
           <div class="section-eyebrow">Why Serene Clean</div>
           <h2 class="section-title">Not just clean — truly serene.</h2>
           <p class="section-sub">
-            We combine mindful, detailed cleaning with professionalism, discretion and eco-conscious products.
-            Every service is designed to protect your health, your time and your peace of mind.
+            We keep things simple: show up, work hard, respect your space and leave it calmer than we found it.
           </p>
         </div>
 
+        <!-- HORIZONTAL CARDS -->
         <div class="badge-grid">
           <div class="badge-card">
             <div class="badge-icon">🧽</div>
             <div>
               <div class="badge-title">Hybrid cleaning & detailing</div>
-              <p>
-                One provider for both building cleaning and vehicle/fleet detailing, eliminating vendor chaos and
-                miscommunication.
+              <p class="badge-text">
+                One provider for buildings and vehicles. Less juggling, fewer messages, one standard.
               </p>
             </div>
           </div>
+
           <div class="badge-card">
             <div class="badge-icon">♻️</div>
             <div>
               <div class="badge-title">Eco-friendly, non-toxic</div>
-              <p>
-                We prioritize products that are safer for families, pets, teams and the planet while still delivering
-                premium results.
+              <p class="badge-text">
+                Products chosen to be safer for families, pets, teams and finishes while still hitting hard on dirt.
               </p>
             </div>
           </div>
+
           <div class="badge-card">
             <div class="badge-icon">📅</div>
             <div>
               <div class="badge-title">Flexible & mobile</div>
-              <p>
-                Early mornings, evenings or weekends. At your site or via mobile units — we’re built around your
-                schedule.
+              <p class="badge-text">
+                Mornings, evenings or weekends. At your place or your site — built around your reality.
               </p>
             </div>
           </div>
+
           <div class="badge-card">
             <div class="badge-icon">🛡️</div>
             <div>
               <div class="badge-title">Trained & insured teams</div>
-              <p>
-                Uniformed, trained and insured staff supported by clear processes and a focus on safety and respect.
+              <p class="badge-text">
+                Checked, trained and insured staff backed by clear checklists and owner-level oversight.
               </p>
             </div>
           </div>
@@ -1352,662 +1217,169 @@
 
       <div id="industries">
         <div class="section-header">
-          <div class="section-eyebrow">Industries & Clients</div>
-          <h2 class="section-title">Who we serve</h2>
+          <div class="section-eyebrow">Industries & clients</div>
+          <h2 class="section-title">Who we serve.</h2>
           <p class="section-sub">
-            Serene Clean Detailing supports both individual and corporate clients — from single homes to international
-            operations.
+            From first apartments to logistics fleets, we build long-term relationships, not one-off cleans.
           </p>
         </div>
 
         <div class="card">
-          <h3>Key client segments</h3>
+          <h3 style="font-size:1.05rem; margin-bottom:0.5rem;">Key client segments</h3>
           <div class="chip-row">
             <span class="chip">Homeowners & renters</span>
             <span class="chip">Property managers</span>
-            <span class="chip">Real estate agents</span>
+            <span class="chip">Real estate teams</span>
             <span class="chip">Offices & retail</span>
             <span class="chip">Warehouses & theaters</span>
+            <span class="chip">Clinics & studios</span>
             <span class="chip">Vehicle owners</span>
             <span class="chip">Corporate fleets</span>
-            <span class="chip">Dealerships & rental firms</span>
+            <span class="chip">Dealerships & rentals</span>
           </div>
-          <p style="margin-top:0.8rem; color:var(--text-muted); font-size:0.83rem;">
-            We also design subscription-based cleaning programs and contract options, blending building and vehicle
-            care for long-term convenience and loyalty.
+          <p style="margin-top:0.8rem; color:var(--text-muted); font-size:0.9rem;">
+            We also offer subscription programs that combine space cleaning with vehicle or fleet care under one plan.
           </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- TESTIMONIALS -->
+  <!-- TESTIMONIALS (shorter) -->
   <section id="testimonials" class="testimonials-section">
     <div class="container reveal">
       <div class="section-header">
-        <div class="section-eyebrow">Testimonials</div>
-        <h2 class="section-title">What our clients say about Serene Clean.</h2>
+        <div class="section-eyebrow">Reviews</div>
+        <h2 class="section-title">What clients say.</h2>
         <p class="section-sub">
-          Over 30+ reviews from homeowners, business owners and fleet managers who trust Dario and his team
-          to show up on time, work hard, and leave every space feeling lighter, brighter and truly serene.
+          A few of the people and teams who trust Serene Clean Detailing.
         </p>
       </div>
 
       <div class="testimonials-grid">
-        <!-- 1 -->
         <div class="testimonial-card">
           <div class="testimonial-avatar">
-            <img src="https://i.pravatar.cc/100?img=1" alt="Client avatar" loading="lazy">
+            <img src="https://i.pravatar.cc/100?img=1" alt="Client" loading="lazy">
           </div>
           <div>
             <div class="stars">★★★★★</div>
             <div class="testimonial-name">Michelle R.</div>
-            <div class="testimonial-meta">Homeowner · Move-out clean</div>
+            <div class="testimonial-meta">Move-out clean</div>
             <p class="testimonial-text">
-              Dario made a stressful move feel easy. The townhouse was spotless — my landlord commented on how clean it
-              was during inspection.
+              “Townhouse looked better than when I moved in. Landlord even commented on how clean it was.”
             </p>
-            <div class="testimonial-badge-row">
-              <span class="testimonial-badge">Move-out clean</span>
-              <span class="testimonial-badge">Attention to detail</span>
-            </div>
           </div>
         </div>
-        <!-- 2 -->
+
         <div class="testimonial-card">
           <div class="testimonial-avatar">
-            <img src="https://i.pravatar.cc/100?img=2" alt="Client avatar" loading="lazy">
-          </div>
-          <div>
-            <div class="stars">★★★★★</div>
-            <div class="testimonial-name">Jason &amp; Kira</div>
-            <div class="testimonial-meta">Young family · Bi-weekly service</div>
-            <p class="testimonial-text">
-              With two little kids and busy jobs, we needed help. Serene Clean shows up consistently and our home
-              finally feels calm.
-            </p>
-            <div class="testimonial-badge-row">
-              <span class="testimonial-badge">Family-friendly</span>
-              <span class="testimonial-badge">Reliable</span>
-            </div>
-          </div>
-        </div>
-        <!-- 3 -->
-        <div class="testimonial-card">
-          <div class="testimonial-avatar">
-            <img src="https://i.pravatar.cc/100?img=3" alt="Client avatar" loading="lazy">
-          </div>
-          <div>
-            <div class="stars">★★★★★</div>
-            <div class="testimonial-name">Andre P.</div>
-            <div class="testimonial-meta">Construction project · Post-construction clean</div>
-            <p class="testimonial-text">
-              We use Dario for our renovation handovers. He understands trades, knows what to look for and leaves
-              the place client-ready every time.
-            </p>
-            <div class="testimonial-badge-row">
-              <span class="testimonial-badge">Post-construction</span>
-              <span class="testimonial-badge">Trade background</span>
-            </div>
-          </div>
-        </div>
-        <!-- 4 -->
-        <div class="testimonial-card">
-          <div class="testimonial-avatar">
-            <img src="https://i.pravatar.cc/100?img=4" alt="Client avatar" loading="lazy">
-          </div>
-          <div>
-            <div class="stars">★★★★★</div>
-            <div class="testimonial-name">Luxe Realty Group</div>
-            <div class="testimonial-meta">Real estate team · Listing prep</div>
-            <p class="testimonial-text">
-              When we need a condo photographed, we call Serene Clean first. The staging clean, windows and details
-              always photograph beautifully.
-            </p>
-            <div class="testimonial-badge-row">
-              <span class="testimonial-badge">Real estate</span>
-              <span class="testimonial-badge">Listing-ready</span>
-            </div>
-          </div>
-        </div>
-        <!-- 5 -->
-        <div class="testimonial-card">
-          <div class="testimonial-avatar">
-            <img src="https://i.pravatar.cc/100?img=5" alt="Client avatar" loading="lazy">
-          </div>
-          <div>
-            <div class="stars">★★★★★</div>
-            <div class="testimonial-name">Crystal C.</div>
-            <div class="testimonial-meta">Homeowner · Deep clean</div>
-            <p class="testimonial-text">
-              My kitchen and bathrooms look brand new. The team respected my space and worked quietly while I was on
-              calls. Highly recommended.
-            </p>
-            <div class="testimonial-badge-row">
-              <span class="testimonial-badge">Respectful</span>
-              <span class="testimonial-badge">Deep detailing</span>
-            </div>
-          </div>
-        </div>
-        <!-- 6 -->
-        <div class="testimonial-card">
-          <div class="testimonial-avatar">
-            <img src="https://i.pravatar.cc/100?img=6" alt="Client avatar" loading="lazy">
+            <img src="https://i.pravatar.cc/100?img=5" alt="Client" loading="lazy">
           </div>
           <div>
             <div class="stars">★★★★★</div>
             <div class="testimonial-name">Green Leaf Wellness</div>
-            <div class="testimonial-meta">Commercial client · Weekly cleaning</div>
+            <div class="testimonial-meta">Clinic · Weekly clean</div>
             <p class="testimonial-text">
-              Our clinic needs to feel calm and hygienic. Serene Clean nailed both. Patients comment on how fresh
-              the space feels.
+              “Patients always say the space feels fresh and calm. Exactly what we want for a health setting.”
             </p>
-            <div class="testimonial-badge-row">
-              <span class="testimonial-badge">Clinic</span>
-              <span class="testimonial-badge">Eco-conscious</span>
-            </div>
           </div>
         </div>
-        <!-- 7 -->
+
         <div class="testimonial-card">
           <div class="testimonial-avatar">
-            <img src="https://i.pravatar.cc/100?img=7" alt="Client avatar" loading="lazy">
+            <img src="https://i.pravatar.cc/100?img=7" alt="Client" loading="lazy">
           </div>
           <div>
             <div class="stars">★★★★★</div>
             <div class="testimonial-name">Marcus J.</div>
-            <div class="testimonial-meta">SUV owner · Full detail</div>
+            <div class="testimonial-meta">SUV detail</div>
             <p class="testimonial-text">
-              My truck had kids, work tools and food stains. Dario brought it back to showroom condition. Feels like
-              I’m driving a new vehicle.
+              “Kids, snacks and work gear destroyed my interior. Dario gave me my truck back.”
             </p>
-            <div class="testimonial-badge-row">
-              <span class="testimonial-badge">Full interior</span>
-              <span class="testimonial-badge">Odor removal</span>
-            </div>
           </div>
         </div>
-        <!-- 8 -->
+
         <div class="testimonial-card">
           <div class="testimonial-avatar">
-            <img src="https://i.pravatar.cc/100?img=8" alt="Client avatar" loading="lazy">
+            <img src="https://i.pravatar.cc/100?img=11" alt="Client" loading="lazy">
           </div>
           <div>
             <div class="stars">★★★★★</div>
             <div class="testimonial-name">Harbour View Properties</div>
-            <div class="testimonial-meta">Property manager · Multiple units</div>
+            <div class="testimonial-meta">Property management</div>
             <p class="testimonial-text">
-              Reliable, organized and easy to work with. Turnover cleans are consistent and we’ve reduced complaints
-              from incoming tenants.
+              “Turnover cleans are consistent. New tenants walk into a place that already feels like home.”
             </p>
-            <div class="testimonial-badge-row">
-              <span class="testimonial-badge">Property management</span>
-              <span class="testimonial-badge">Turnover ready</span>
-            </div>
           </div>
         </div>
-        <!-- 9 -->
+
         <div class="testimonial-card">
           <div class="testimonial-avatar">
-            <img src="https://i.pravatar.cc/100?img=9" alt="Client avatar" loading="lazy">
-          </div>
-          <div>
-            <div class="stars">★★★★★</div>
-            <div class="testimonial-name">Samantha K.</div>
-            <div class="testimonial-meta">Condo owner · Monthly plan</div>
-            <p class="testimonial-text">
-              I love that I can set a schedule and trust it. The same faces show up, they remember my preferences,
-              and my condo always smells clean but not harsh.
-            </p>
-            <div class="testimonial-badge-row">
-              <span class="testimonial-badge">Subscription plan</span>
-              <span class="testimonial-badge">Consistent team</span>
-            </div>
-          </div>
-        </div>
-        <!-- 10 -->
-        <div class="testimonial-card">
-          <div class="testimonial-avatar">
-            <img src="https://i.pravatar.cc/100?img=10" alt="Client avatar" loading="lazy">
-          </div>
-          <div>
-            <div class="stars">★★★★★</div>
-            <div class="testimonial-name">Sunrise Bistro</div>
-            <div class="testimonial-meta">Restaurant · After-hours cleaning</div>
-            <p class="testimonial-text">
-              Dario’s team cleans our dining room and washrooms after close. They respect our kitchen rules and we
-              always open to a fresh space.
-            </p>
-            <div class="testimonial-badge-row">
-              <span class="testimonial-badge">After hours</span>
-              <span class="testimonial-badge">Restaurant</span>
-            </div>
-          </div>
-        </div>
-        <!-- 11 -->
-        <div class="testimonial-card">
-          <div class="testimonial-avatar">
-            <img src="https://i.pravatar.cc/100?img=11" alt="Client avatar" loading="lazy">
-          </div>
-          <div>
-            <div class="stars">★★★★★</div>
-            <div class="testimonial-name">K. Thompson</div>
-            <div class="testimonial-meta">Homeowner · Pre-baby deep clean</div>
-            <p class="testimonial-text">
-              I wanted everything perfect before bringing our baby home. Serene Clean treated our place like their
-              own. Every corner was taken care of.
-            </p>
-            <div class="testimonial-badge-row">
-              <span class="testimonial-badge">New parents</span>
-              <span class="testimonial-badge">Gentle products</span>
-            </div>
-          </div>
-        </div>
-        <!-- 12 -->
-        <div class="testimonial-card">
-          <div class="testimonial-avatar">
-            <img src="https://i.pravatar.cc/100?img=12" alt="Client avatar" loading="lazy">
-          </div>
-          <div>
-            <div class="stars">★★★★★</div>
-            <div class="testimonial-name">DriveTime Rentals</div>
-            <div class="testimonial-meta">Fleet client · Weekly detailing</div>
-            <p class="testimonial-text">
-              Our rental cars must be spotless. Dario set up a standing schedule and our vehicles consistently look
-              ready for the next customer.
-            </p>
-            <div class="testimonial-badge-row">
-              <span class="testimonial-badge">Fleet detailing</span>
-              <span class="testimonial-badge">On-site service</span>
-            </div>
-          </div>
-        </div>
-        <!-- 13 -->
-        <div class="testimonial-card">
-          <div class="testimonial-avatar">
-            <img src="https://i.pravatar.cc/100?img=13" alt="Client avatar" loading="lazy">
-          </div>
-          <div>
-            <div class="stars">★★★★★</div>
-            <div class="testimonial-name">House of Style Salon</div>
-            <div class="testimonial-meta">Small business · Weekly clean</div>
-            <p class="testimonial-text">
-              Hair salons get dusty fast. Serene Clean keeps our mirrors, floors and washrooms on point. Clients
-              notice the difference.
-            </p>
-            <div class="testimonial-badge-row">
-              <span class="testimonial-badge">Salon</span>
-              <span class="testimonial-badge">Presentation</span>
-            </div>
-          </div>
-        </div>
-        <!-- 14 -->
-        <div class="testimonial-card">
-          <div class="testimonial-avatar">
-            <img src="https://i.pravatar.cc/100?img=14" alt="Client avatar" loading="lazy">
-          </div>
-          <div>
-            <div class="stars">★★★★★</div>
-            <div class="testimonial-name">Neil D.</div>
-            <div class="testimonial-meta">Pickup truck · Interior refresh</div>
-            <p class="testimonial-text">
-              I work in trades so my truck takes abuse. Dario understood exactly what I needed and got my interior
-              back to smelling fresh.
-            </p>
-            <div class="testimonial-badge-row">
-              <span class="testimonial-badge">Trades</span>
-              <span class="testimonial-badge">Interior reset</span>
-            </div>
-          </div>
-        </div>
-        <!-- 15 -->
-        <div class="testimonial-card">
-          <div class="testimonial-avatar">
-            <img src="https://i.pravatar.cc/100?img=15" alt="Client avatar" loading="lazy">
-          </div>
-          <div>
-            <div class="stars">★★★★★</div>
-            <div class="testimonial-name">Harbourview Offices</div>
-            <div class="testimonial-meta">Office · Nightly service</div>
-            <p class="testimonial-text">
-              Our team arrives every morning to a fresh workspace. Trash is emptied, surfaces are wiped, and the
-              boardroom always looks sharp.
-            </p>
-            <div class="testimonial-badge-row">
-              <span class="testimonial-badge">Office cleaning</span>
-              <span class="testimonial-badge">Discreet</span>
-            </div>
-          </div>
-        </div>
-        <!-- 16 -->
-        <div class="testimonial-card">
-          <div class="testimonial-avatar">
-            <img src="https://i.pravatar.cc/100?img=16" alt="Client avatar" loading="lazy">
+            <img src="https://i.pravatar.cc/100?img=16" alt="Client" loading="lazy">
           </div>
           <div>
             <div class="stars">★★★★★</div>
             <div class="testimonial-name">Shanice L.</div>
-            <div class="testimonial-meta">Apartment · One-time reset</div>
+            <div class="testimonial-meta">One-time reset</div>
             <p class="testimonial-text">
-              I booked a one-time deep clean after a rough season. The energy in my apartment changed. I felt like
-              I could breathe again.
+              “I booked a deep clean after a rough season. The whole apartment felt lighter.”
             </p>
-            <div class="testimonial-badge-row">
-              <span class="testimonial-badge">One-time reset</span>
-              <span class="testimonial-badge">Mental reset</span>
-            </div>
           </div>
         </div>
-        <!-- 17 -->
+
         <div class="testimonial-card">
           <div class="testimonial-avatar">
-            <img src="https://i.pravatar.cc/100?img=17" alt="Client avatar" loading="lazy">
-          </div>
-          <div>
-            <div class="stars">★★★★★</div>
-            <div class="testimonial-name">Harbourline Logistics</div>
-            <div class="testimonial-meta">Fleet client · Trucks & office</div>
-            <p class="testimonial-text">
-              We wanted one company for both our trucks and office. Serene Clean handles both with the same level
-              of pride and detail.
-            </p>
-            <div class="testimonial-badge-row">
-              <span class="testimonial-badge">Hybrid contract</span>
-              <span class="testimonial-badge">Fleet + office</span>
-            </div>
-          </div>
-        </div>
-        <!-- 18 -->
-        <div class="testimonial-card">
-          <div class="testimonial-avatar">
-            <img src="https://i.pravatar.cc/100?img=18" alt="Client avatar" loading="lazy">
-          </div>
-          <div>
-            <div class="stars">★★★★★</div>
-            <div class="testimonial-name">Skyline Luxe Rentals</div>
-            <div class="testimonial-meta">Short-term rental · Turnover cleaning</div>
-            <p class="testimonial-text">
-              Our guests expect hotel-level cleanliness. Dario’s team hasn’t missed once. Five-star reviews mention
-              how clean the villa is.
-            </p>
-            <div class="testimonial-badge-row">
-              <span class="testimonial-badge">Short-term rentals</span>
-              <span class="testimonial-badge">Guest-ready</span>
-            </div>
-          </div>
-        </div>
-        <!-- 19 -->
-        <div class="testimonial-card">
-          <div class="testimonial-avatar">
-            <img src="https://i.pravatar.cc/100?img=19" alt="Client avatar" loading="lazy">
-          </div>
-          <div>
-            <div class="stars">★★★★★</div>
-            <div class="testimonial-name">D. Reynolds</div>
-            <div class="testimonial-meta">Luxury coupe · Ceramic-safe clean</div>
-            <p class="testimonial-text">
-              I’m picky about who touches my car. Dario knew how to protect the finish and still get the result I
-              wanted. Very professional.
-            </p>
-            <div class="testimonial-badge-row">
-              <span class="testimonial-badge">Luxury vehicle</span>
-              <span class="testimonial-badge">Paint-safe</span>
-            </div>
-          </div>
-        </div>
-        <!-- 20 -->
-        <div class="testimonial-card">
-          <div class="testimonial-avatar">
-            <img src="https://i.pravatar.cc/100?img=20" alt="Client avatar" loading="lazy">
+            <img src="https://i.pravatar.cc/100?img=20" alt="Client" loading="lazy">
           </div>
           <div>
             <div class="stars">★★★★★</div>
             <div class="testimonial-name">CarePlus Seniors Home</div>
-            <div class="testimonial-meta">Facility · Common areas</div>
+            <div class="testimonial-meta">Facility</div>
             <p class="testimonial-text">
-              Our seniors deserve a clean, calm environment. Serene Clean is gentle, respectful and consistent with
-              their work.
+              “Respectful staff, gentle products and consistent results for our residents.”
             </p>
-            <div class="testimonial-badge-row">
-              <span class="testimonial-badge">Senior care</span>
-              <span class="testimonial-badge">Respectful staff</span>
-            </div>
-          </div>
-        </div>
-        <!-- 21 -->
-        <div class="testimonial-card">
-          <div class="testimonial-avatar">
-            <img src="https://i.pravatar.cc/100?img=21" alt="Client avatar" loading="lazy">
-          </div>
-          <div>
-            <div class="stars">★★★★★</div>
-            <div class="testimonial-name">Elite Fitness Studio</div>
-            <div class="testimonial-meta">Gym · Sanitization focus</div>
-            <p class="testimonial-text">
-              They understand sweat, traffic and germs. Our mirrors, change rooms and high-touch surfaces are
-              handled with care.
-            </p>
-            <div class="testimonial-badge-row">
-              <span class="testimonial-badge">Fitness studio</span>
-              <span class="testimonial-badge">Sanitization</span>
-            </div>
-          </div>
-        </div>
-        <!-- 22 -->
-        <div class="testimonial-card">
-          <div class="testimonial-avatar">
-            <img src="https://i.pravatar.cc/100?img=22" alt="Client avatar" loading="lazy">
-          </div>
-          <div>
-            <div class="stars">★★★★★</div>
-            <div class="testimonial-name">Tanya &amp; Malik</div>
-            <div class="testimonial-meta">New homeowners · Move-in clean</div>
-            <p class="testimonial-text">
-              We got the keys and wanted a fresh start. Dario’s team cleaned before we unloaded a single box. Best
-              decision we made.
-            </p>
-            <div class="testimonial-badge-row">
-              <span class="testimonial-badge">Move-in</span>
-              <span class="testimonial-badge">Fresh start</span>
-            </div>
-          </div>
-        </div>
-        <!-- 23 -->
-        <div class="testimonial-card">
-          <div class="testimonial-avatar">
-            <img src="https://i.pravatar.cc/100?img=23" alt="Client avatar" loading="lazy">
-          </div>
-          <div>
-            <div class="stars">★★★★★</div>
-            <div class="testimonial-name">Harbour Taxi Co.</div>
-            <div class="testimonial-meta">Fleet · Weekly service</div>
-            <p class="testimonial-text">
-              We get compliments from riders about how clean our cabs are now. Dario built a schedule that works
-              around our busiest hours.
-            </p>
-            <div class="testimonial-badge-row">
-              <span class="testimonial-badge">Taxi fleet</span>
-              <span class="testimonial-badge">Flexible timing</span>
-            </div>
-          </div>
-        </div>
-        <!-- 24 -->
-        <div class="testimonial-card">
-          <div class="testimonial-avatar">
-            <img src="https://i.pravatar.cc/100?img=24" alt="Client avatar" loading="lazy">
-          </div>
-          <div>
-            <div class="stars">★★★★★</div>
-            <div class="testimonial-name">Studio 17</div>
-            <div class="testimonial-meta">Creative studio · Weekly clean</div>
-            <p class="testimonial-text">
-              Our studio has props, equipment and cables everywhere. Serene Clean works around our setup and still
-              keeps everything tidy.
-            </p>
-            <div class="testimonial-badge-row">
-              <span class="testimonial-badge">Creative space</span>
-              <span class="testimonial-badge">Careful handling</span>
-            </div>
-          </div>
-        </div>
-        <!-- 25 -->
-        <div class="testimonial-card">
-          <div class="testimonial-avatar">
-            <img src="https://i.pravatar.cc/100?img=25" alt="Client avatar" loading="lazy">
-          </div>
-          <div>
-            <div class="stars">★★★★★</div>
-            <div class="testimonial-name">L. Pierre</div>
-            <div class="testimonial-meta">Busy professional · Condo clean</div>
-            <p class="testimonial-text">
-              I work long hours and travel a lot. Coming home to a clean, organized condo after a trip feels like
-              a vacation.
-            </p>
-            <div class="testimonial-badge-row">
-              <span class="testimonial-badge">Travel schedule</span>
-              <span class="testimonial-badge">Trustworthy</span>
-            </div>
-          </div>
-        </div>
-        <!-- 26 -->
-        <div class="testimonial-card">
-          <div class="testimonial-avatar">
-            <img src="https://i.pravatar.cc/100?img=26" alt="Client avatar" loading="lazy">
-          </div>
-          <div>
-            <div class="stars">★★★★★</div>
-            <div class="testimonial-name">Roots Café</div>
-            <div class="testimonial-meta">Restaurant · Dining area</div>
-            <p class="testimonial-text">
-              Dario understands our standard — clean, welcoming and full of good energy. Our guests feel it
-              as soon as they walk in.
-            </p>
-            <div class="testimonial-badge-row">
-              <span class="testimonial-badge">Hospitality</span>
-              <span class="testimonial-badge">Vibe + hygiene</span>
-            </div>
-          </div>
-        </div>
-        <!-- 27 -->
-        <div class="testimonial-card">
-          <div class="testimonial-avatar">
-            <img src="https://i.pravatar.cc/100?img=27" alt="Client avatar" loading="lazy">
-          </div>
-          <div>
-            <div class="stars">★★★★★</div>
-            <div class="testimonial-name">Daniel H.</div>
-            <div class="testimonial-meta">Car enthusiast · Seasonal detail</div>
-            <p class="testimonial-text">
-              I book Dario at the start and end of every season. Salt, dust and road grime are gone, and my car
-              always looks cared for.
-            </p>
-            <div class="testimonial-badge-row">
-              <span class="testimonial-badge">Seasonal detailing</span>
-              <span class="testimonial-badge">Car care</span>
-            </div>
-          </div>
-        </div>
-        <!-- 28 -->
-        <div class="testimonial-card">
-          <div class="testimonial-avatar">
-            <img src="https://i.pravatar.cc/100?img=28" alt="Client avatar" loading="lazy">
-          </div>
-          <div>
-            <div class="stars">★★★★★</div>
-            <div class="testimonial-name">Cityline Developers</div>
-            <div class="testimonial-meta">Builder · Project close-out</div>
-            <p class="testimonial-text">
-              Post-construction is messy. Serene Clean handles dust, paint, and debris so our clients see the finished
-              work, not the mess.
-            </p>
-            <div class="testimonial-badge-row">
-              <span class="testimonial-badge">Developers</span>
-              <span class="testimonial-badge">Reliable partner</span>
-            </div>
-          </div>
-        </div>
-        <!-- 29 -->
-        <div class="testimonial-card">
-          <div class="testimonial-avatar">
-            <img src="https://i.pravatar.cc/100?img=29" alt="Client avatar" loading="lazy">
-          </div>
-          <div>
-            <div class="stars">★★★★★</div>
-            <div class="testimonial-name">Alicia G.</div>
-            <div class="testimonial-meta">Homeowner · Spring refresh</div>
-            <p class="testimonial-text">
-              They tackled windows, baseboards, inside cupboards — all the things I’ve been putting off. The house
-              feels lighter.
-            </p>
-            <div class="testimonial-badge-row">
-              <span class="testimonial-badge">Spring clean</span>
-              <span class="testimonial-badge">Detail work</span>
-            </div>
-          </div>
-        </div>
-        <!-- 30 -->
-        <div class="testimonial-card">
-          <div class="testimonial-avatar">
-            <img src="https://i.pravatar.cc/100?img=30" alt="Client avatar" loading="lazy">
-          </div>
-          <div>
-            <div class="stars">★★★★★</div>
-            <div class="testimonial-name">Riverside Law Group</div>
-            <div class="testimonial-meta">Office · Discreet cleaning</div>
-            <p class="testimonial-text">
-              Confidential documents and privacy matter to us. Dario’s crew is respectful, quiet and professional
-              every single visit.
-            </p>
-            <div class="testimonial-badge-row">
-              <span class="testimonial-badge">Professional setting</span>
-              <span class="testimonial-badge">Discretion</span>
-            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- PROCESS & ABOUT / OWNER -->
+  <!-- PROCESS + ABOUT -->
   <section id="about">
     <div class="container two-col reveal">
       <div>
         <div class="section-header">
-          <div class="section-eyebrow">How It Works</div>
-          <h2 class="section-title">A simple, serene process.</h2>
+          <div class="section-eyebrow">How it works</div>
+          <h2 class="section-title">A simple, calm process.</h2>
         </div>
 
         <div class="process-grid">
           <div class="card">
             <div class="step-num">1</div>
-            <h3>Connect & customize</h3>
+            <h3>Share what you need</h3>
             <p>
-              Share your space or vehicles, service type and schedule. We quickly map out a plan that fits your
-              routine and standards.
+              You tell us about your space, vehicles and timing. A few details go a long way.
             </p>
           </div>
           <div class="card">
             <div class="step-num">2</div>
-            <h3>Prepare & protect</h3>
+            <h3>Clear quote</h3>
             <p>
-              Our teams arrive on time, in uniform, with eco-conscious products and the right tools for your
-              property and vehicles.
+              We send a straightforward price and plan — no surprise add-ons or confusing tiers.
             </p>
           </div>
           <div class="card">
             <div class="step-num">3</div>
-            <h3>Clean & detail with care</h3>
+            <h3>Detail-obsessed clean</h3>
             <p>
-              We execute a meticulous checklist, respecting your belongings, security protocols and confidentiality
-              at all times.
+              Trained, insured staff arrive on time, work efficiently and respect your space.
             </p>
           </div>
           <div class="card">
             <div class="step-num">4</div>
-            <h3>Maintain serenity</h3>
+            <h3>Stay serene</h3>
             <p>
-              Choose recurring visits, subscription plans or fleet programs so your environment stays consistently
-              serene over time.
+              Turn one visit into a regular schedule or hybrid building + fleet program.
             </p>
           </div>
         </div>
@@ -2015,73 +1387,48 @@
 
       <div>
         <div class="section-header">
-          <div class="section-eyebrow">About the Owner & Company</div>
-          <h2 class="section-title">Meet Dario & Serene Clean Detailing</h2>
+          <div class="section-eyebrow">Owner & company</div>
+          <h2 class="section-title">Meet Dario & Serene Clean.</h2>
         </div>
 
         <div class="card" style="margin-bottom:0.9rem;">
           <div class="owner-header">
             <div class="owner-avatar">
-              <!-- Placeholder image for Dario -->
               <img src="https://i.pravatar.cc/200?img=31" alt="Owner & CEO, Dario Campbell" loading="lazy">
             </div>
             <div>
               <div class="owner-name">Dario Campbell</div>
-              <div class="owner-tagline">Founder & CEO · Serene Clean Detailing</div>
+              <div class="owner-tagline">Founder & working owner</div>
             </div>
           </div>
           <div class="owner-body">
             <p>
-              Born and raised with a strong background in the construction and trades industry, Dario built his name
-              long before Serene Clean Detailing existed. With more than <strong>25 years of hands-on experience</strong>,
-              he has done it all — painting, drywall, installation, renovations, fine finishing and detailed cleaning.
+              Before starting Serene Clean Detailing, Dario spent over <strong>25 years</strong> in the trades — painting,
+              drywall, installs, renovations and cleanups.
             </p>
             <p>
-              On the job site, Dario was always the one who stayed late to clean up properly — not just sweeping, but
-              making the space feel ready for the next chapter. That same pride, discipline and work ethic
-              now powers Serene Clean Detailing.
+              He was always the one staying late to make job sites presentable. That “finish it right” mentality is now
+              the standard for every home, office and vehicle his team touches.
             </p>
             <p>
-              Today, Dario leads a growing team that blends <strong>construction-level understanding</strong> of materials
-              and surfaces with a <strong>hospitality mindset</strong>. Clients know he will show up, walk the job with them,
-              explain the plan clearly, and deliver a result that feels calm, professional and cared for.
-            </p>
-            <p>
-              Whether he’s resetting a luxury condo after renovations, detailing a work truck that’s been through every
-              season, or preparing a family home for move-in day, Dario brings the same standard:
-              <strong>no shortcuts, no excuses — just honest work and a serene finish.</strong>
+              Clients like working with Dario because he walks the space, explains the plan in plain language and then
+              actually delivers on it — no shortcuts, no excuses.
             </p>
           </div>
           <div class="owner-stats">
-            <div class="owner-stat">25+ years in construction & trades</div>
-            <div class="owner-stat">Painting · Drywall · Installation · Cleaning</div>
-            <div class="owner-stat">Owner-led & operated</div>
-            <div class="owner-stat">Hands-on on every major job</div>
+            <div class="owner-stat">25+ years in trades</div>
+            <div class="owner-stat">Hands-on owner</div>
+            <div class="owner-stat">Building + vehicle focus</div>
+            <div class="owner-stat">Detail-first mindset</div>
           </div>
         </div>
 
         <div class="card">
-          <h3 style="font-size:0.95rem; margin-bottom:0.4rem;">Serene Clean Detailing · Mission & Vision</h3>
-          <p style="font-size:0.85rem; color:var(--text-muted);">
-            At <strong>SERENE CLEAN DETAILING</strong>, our mission is to restore serenity to every space we touch — whether
-            it’s a cozy home, a thriving business, a luxury property or a hard-working fleet. A truly clean environment is
-            more than spotless surfaces; it’s the foundation for calm, clarity and well-being.
+          <h3 style="font-size:1.02rem; margin-bottom:0.4rem;">Mission in one line</h3>
+          <p style="font-size:0.9rem; color:var(--text-muted);">
+            <strong>Make busy lives feel lighter</strong> by keeping the spaces and vehicles people rely on consistently
+            clean, organized and calm — with honest pricing and respectful service.
           </p>
-          <p style="font-size:0.85rem; color:var(--text-muted); margin-top:0.6rem;">
-            We combine precision, professionalism and eco-friendly solutions to protect both your health and the planet.
-            Every service — from residential detailing to premium commercial care and vehicle/fleet programs — is delivered
-            with integrity, discretion and respect.
-          </p>
-          <p style="font-size:0.85rem; color:var(--text-muted); margin-top:0.6rem;">
-            Our vision is to be the most trusted, values-driven cleaning and detailing brand at home and abroad — providing
-            opportunity, training and dignified work while leaving every client surrounded by a truly serene environment.
-          </p>
-          <div class="chip-row" style="margin-top:0.7rem;">
-            <span class="chip">Owner · Dario Campbell</span>
-            <span class="chip">Craftsmanship · Global standard</span>
-            <span class="chip">Trained technicians & detailers</span>
-            <span class="chip">Hybrid building & vehicle care</span>
-          </div>
         </div>
       </div>
     </div>
@@ -2093,29 +1440,24 @@
       <div>
         <div class="section-header">
           <div class="section-eyebrow">Contact</div>
-          <h2 class="section-title">Request your Serene Clean quote.</h2>
+          <h2 class="section-title">Request your quote.</h2>
           <p class="section-sub">
-            Tell us about your building, vehicles or fleet and preferred schedule. We’ll provide a clear, no-pressure
-            quote and next steps.
+            Tell us what you need cleaned or detailed and when. We’ll respond with a clear plan.
           </p>
         </div>
 
         <div class="contact-card">
-          <h3>Service coverage</h3>
+          <h3>Where we work</h3>
           <p>
-            Serene Clean Detailing operates locally and can support international projects or multi-site clients
-            through a hybrid service model.
+            Serene Clean Detailing operates locally with the ability to support multi-site and fleet clients.
           </p>
           <ul>
-            <li>Local building cleaning & detailing</li>
-            <li>Mobile & on-site vehicle/fleet support</li>
-            <li>Contract & subscription options for recurring needs</li>
-            <li>Liability insurance & licensing as required by region</li>
+            <li>Homes, condos and rentals</li>
+            <li>Offices, studios, clinics and shops</li>
+            <li>Renovation and construction projects</li>
+            <li>Personal vehicles, work trucks and fleets</li>
           </ul>
           <p>
-            Use the form to outline your needs. We’ll follow up with a tailored proposal and recommended schedule.
-          </p>
-          <p style="margin-top:0.6rem; font-size:0.85rem;">
             Prefer to email directly? Reach us at
             <strong><a href="mailto:campbelldario10@gmail.com">campbelldario10@gmail.com</a></strong>.
           </p>
@@ -2124,11 +1466,9 @@
 
       <div>
         <form id="quote-form" action="https://formsubmit.co/campbelldario10@gmail.com" method="POST">
-          <!-- FormSubmit config -->
           <input type="hidden" name="_captcha" value="false">
           <input type="hidden" name="_template" value="table">
           <input type="hidden" name="_subject" value="New Serene Clean Request">
-          <!-- Change this if you don't have thank-you.html yet -->
           <input type="hidden" name="_next" value="thank-you.html">
 
           <div class="form-row">
@@ -2169,26 +1509,26 @@
           </div>
 
           <div class="field">
-            <label for="message">Tell us about your space or vehicles</label>
+            <label for="message">What do you need cleaned or detailed?</label>
             <textarea id="message" name="Project Details" placeholder="Example: 3-bedroom townhouse + 2 vehicles, looking for bi-weekly cleaning and monthly detailing." required></textarea>
           </div>
 
           <div class="form-footer">
             <button type="submit" class="btn-primary">
-              Submit quote request
+              Submit request
             </button>
             <p class="form-note">
-              Your request will be emailed directly to <strong>campbelldario10@gmail.com</strong>.
+              Your request goes straight to <strong>campbelldario10@gmail.com</strong>. We’ll reply with timing and pricing options.
             </p>
           </div>
         </form>
 
         <div class="cta-band">
           <div>
-            Ready to talk now? <strong>Add your phone or WhatsApp number in the form</strong> so clients can reach you instantly.
+            Want a quick call instead? <strong>Add your phone or WhatsApp</strong> in the form and note “call me”.
           </div>
           <button class="btn-ghost" onclick="document.getElementById('quote-form').scrollIntoView({behavior:'smooth'})">
-            Share project details
+            Open the form
           </button>
         </div>
       </div>
@@ -2199,50 +1539,38 @@
   <footer>
     <div class="container footer-inner">
       <span>© <span id="year"></span> Serene Clean Detailing. All rights reserved.</span>
-      <span>Owner-led · Hybrid building cleaning & vehicle detailing · Local & international.</span>
+      <span>Owner-led · Hybrid cleaning & detailing · Spaces and vehicles.</span>
     </div>
   </footer>
 
   <script>
-    // Tabs logic
+    // Tabs
     const tabButtons = document.querySelectorAll(".tab-btn");
     const tabContents = document.querySelectorAll(".tab-content");
     const servicesDetail = document.getElementById("services-detail");
 
     const detailCopy = {
       buildings: `
-        <h3>Serene Clean Building Detailing</h3>
-        <p>
-          Our building cleaning teams specialize in creating calm, spotless environments across residential and
-          commercial properties. Services can be booked one-time, scheduled weekly, or packaged into longer-term
-          contracts for property managers and businesses.
-        </p>
+        <h3>Building cleaning that feels easy.</h3>
+        <p>Simple bookings, clear pricing and the same faces each visit. We handle:</p>
         <ul>
-          <li>Residential cleaning for homes, condos, apartments & townhouses</li>
-          <li>Commercial cleaning for offices, retail, theaters, kitchens & warehouses</li>
-          <li>Deep cleaning, sanitization & post-construction reset</li>
-          <li>Window cleaning, floor care & specialty surfaces</li>
+          <li>Weekly, bi-weekly and monthly home cleans</li>
+          <li>Office, clinic, studio and retail cleaning</li>
+          <li>Move-in / move-out and post-construction work</li>
+          <li>Windows, floors and high-touch areas</li>
         </ul>
-        <p>
-          Ask about move-in/move-out support and bundled building + vehicle packages for a seamless experience.
-        </p>
+        <p>Start with one visit, grow into a regular routine.</p>
       `,
       vehicles: `
-        <h3>Serene Clean Vehicle & Fleet Detailing</h3>
-        <p>
-          Our auto detailing teams treat every vehicle like a personal space that deserves comfort, clarity and care.
-          From single vehicles to full fleets, we minimize downtime while maximizing visual impact and cleanliness.
-        </p>
+        <h3>Vehicle & fleet detailing that fits your day.</h3>
+        <p>We treat every car, truck or van like a personal space that deserves attention.</p>
         <ul>
-          <li>Hand wash, waxing, polishing & paint-safe techniques</li>
-          <li>Interior vacuuming, shampooing, stain removal & odor treatment</li>
-          <li>Fleet programs for companies, dealerships & rental operators</li>
-          <li>Mobile units that service your home, office or facility</li>
+          <li>Hand washes, waxes and safe drying</li>
+          <li>Interior vacuuming, shampooing and odor removal</li>
+          <li>Fleet programs for companies, taxis and rentals</li>
+          <li>Mobile service at your home, office or yard</li>
         </ul>
-        <p>
-          Combine your building cleaning schedule with fleet or executive vehicle detailing for one integrated,
-          serene maintenance plan.
-        </p>
+        <p>Bundle vehicle care with building cleaning for one simple relationship.</p>
       `
     };
 
@@ -2276,7 +1604,7 @@
     );
     reveals.forEach((el) => observer.observe(el));
 
-    // Year in footer
+    // Year
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
