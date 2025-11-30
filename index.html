@@ -671,7 +671,7 @@
       background: rgba(3,7,18,.98);
     }
 
-    /* TESTIMONIALS (trimmed copy) */
+    /* TESTIMONIALS */
     .testimonials-section {
       background:
         radial-gradient(circle at top, rgba(56,189,248,.18), rgba(3,7,18,.98));
@@ -701,11 +701,34 @@
       transform: translateY(0);
       transition: transform .16s ease, box-shadow .16s ease;
       font-size: 0.9rem;
+      position: relative;
+    }
+
+    /* paint splash blob on hover */
+    .testimonial-card::before {
+      content: "";
+      position: absolute;
+      width: 180%;
+      height: 180%;
+      left: -40%;
+      top: 20%;
+      background:
+        radial-gradient(circle at 20% 0, rgba(56,189,248,.3), transparent 60%),
+        radial-gradient(circle at 80% 100%, rgba(168,85,247,.35), transparent 60%);
+      opacity: 0;
+      transform: translate3d(0,16px,0) rotate(-4deg);
+      transition: opacity .18s ease, transform .18s ease;
+      z-index: -1;
     }
 
     .testimonial-card:hover {
       transform: translateY(-4px);
       box-shadow: 0 24px 70px rgba(15,23,42,.95);
+    }
+
+    .testimonial-card:hover::before {
+      opacity: 1;
+      transform: translate3d(0,0,0) rotate(0deg);
     }
 
     .testimonial-avatar {
@@ -738,21 +761,6 @@
       color: #facc15;
       font-size: 0.78rem;
       margin-bottom: 0.1rem;
-    }
-
-    .testimonial-badge-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.28rem;
-      margin-top: 0.3rem;
-    }
-
-    .testimonial-badge {
-      font-size: 0.75rem;
-      padding: 0.12rem 0.5rem;
-      border-radius: 999px;
-      border: 1px solid rgba(248,250,252,.18);
-      background: rgba(15,23,42,.9);
     }
 
     /* OWNER / ABOUT */
@@ -954,6 +962,99 @@
     .reveal.visible {
       opacity: 1;
       transform: translateY(0);
+    }
+
+    /* --- MOBILE-FIRST TWEAKS (phones) --- */
+    @media (max-width: 640px) {
+      body {
+        font-size: 15px;
+      }
+
+      .container {
+        padding: 0 1rem;
+      }
+
+      .nav-inner {
+        height: 64px;
+      }
+
+      .logo {
+        font-size: 0.9rem;
+        padding-inline: 0.75rem;
+      }
+
+      .nav-cta {
+        padding: 0.45rem 0.9rem;
+        font-size: 0.85rem;
+      }
+
+      section {
+        padding: 2.4rem 0;
+      }
+
+      .hero {
+        padding: 2.6rem 0 2.4rem;
+      }
+
+      .hero-grid {
+        gap: 1.7rem;
+      }
+
+      .hero h1 {
+        font-size: 2.3rem;
+      }
+
+      .hero-sub {
+        font-size: 0.98rem;
+      }
+
+      .hero-badges {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+      }
+
+      .btn-primary,
+      .btn-ghost {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .hero-card {
+        margin-top: 0.4rem;
+      }
+
+      .section-title {
+        font-size: 1.7rem;
+      }
+
+      .section-sub {
+        font-size: 0.94rem;
+      }
+
+      .badge-card {
+        min-width: 100%;
+      }
+
+      .testimonials-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .testimonial-card {
+        align-items: flex-start;
+      }
+
+      .contact-grid {
+        gap: 1.4rem;
+      }
+
+      .cta-band {
+        flex-direction: column;
+        align-items: flex-start;
+      }
     }
   </style>
 </head>
@@ -1245,7 +1346,7 @@
     </div>
   </section>
 
-  <!-- TESTIMONIALS (shorter) -->
+  <!-- TESTIMONIALS -->
   <section id="testimonials" class="testimonials-section">
     <div class="container reveal">
       <div class="section-header">
